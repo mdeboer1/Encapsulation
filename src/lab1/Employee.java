@@ -25,10 +25,13 @@ public class Employee {
     private String birthDate;
     
     public Employee() {
-
-    }
+        /*I wonder if setEmployeeInformation method could be eliminate and use
+        * the constructor to do what that method does?  Call the private methods
+        * from here to set the biographical information for employee!
+        */
+     }
     
-    //Public method for setting Employee information
+    //Public method for setting Employee information, see notes above, does this need to exist?
     public void setEmployeeInformation(String firstName, String lastName, 
             String ssn, String birthDate){
         this.setFirstName(firstName);
@@ -42,12 +45,6 @@ public class Employee {
         System.out.println(this.getFirstName() + " " + this.getLastName() + " " +
               this.getSsn() + " " + this.getBirthDate());
     }
-//    public String getEmployeeInformation(){
-//        String employeeInfo = this.getFirstName() + " " + this.getLastName() +
-//                " " + this.getSsn() + " " + this.getBirthDate();
-//        
-//        return employeeInfo;
-//    }
     
     private String getFirstName() {
         return firstName;

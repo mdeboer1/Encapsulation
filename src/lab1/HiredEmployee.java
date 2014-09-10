@@ -11,7 +11,11 @@ package lab1;
  * information and from main method and creates an Employee object, sets the
  * employee information through Employee's public setter. It has private getters
  * and setters and public methods to get and set the HiredEmployee booleans,
- * this protects how and when they are created.
+ * this protects how and when they are created.  Although several of the setters
+ * are never actually used in the class as it it implemented now.  I wonder if its
+ * best practice to code them anyways in case they are needed for some reason in the
+ * future?  Seems like in these small programs they don't hurt anything since
+ * resources aren't the important yet...but that won't always be the case.
  */
 public class HiredEmployee {
 
@@ -28,15 +32,6 @@ public class HiredEmployee {
         employee.setEmployeeInformation(firstName, lastName, ssn, birthDate);
     }
 
-    //Public setter for HiredEmployee properties (sets the status of the boolean properties
-//    public void setHiredEmployeeConditions(boolean metWithHr, boolean metDeptStaff,
-//            boolean reviewedDeptPolicies, boolean movedIn, String cubeId){
-//        this.setMetWithHr(metWithHr);
-//        this.setMetDeptStaff(metDeptStaff);
-//        this.setReviewedDeptPolicies(reviewedDeptPolicies);
-//        this.setMovedIn(movedIn);
-//        this.setCubeId(cubeId);
-//    }
     //Public getter for HiredEmployee properties (gets the status of boolean properties
     
     public void getHiredEmployeeConditions() {

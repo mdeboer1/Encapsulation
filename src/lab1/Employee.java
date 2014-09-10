@@ -10,100 +10,42 @@ import java.util.Date;
  * @author      Jim Lombardo, WCTC Instructor
  * @version     1.01
  * updated by mdeboer1
+ * 
+ * This class controls only the creation of Employee objects and their biographical
+ * information.  It has private getters and setters, and employees public methods
+ * for outside classes to get and set the information so it is done only in the way
+ * intended.  All setters have validation to ensure null and empty strings are not
+ * passed.  All other information about the conditions that must be met by the employee
+ * that has been hired has been moved to the HiredEmployee Class, and the HiredEmployee
+ * creates the Employee object in its constructor.
  */
 public class Employee {
     private String firstName;
     private String lastName;
     private String ssn;
     private Date birthDate;
-    private boolean metWithHr;
-    private boolean metDeptStaff;
-    private boolean reviewedDeptPolicies;
-    private boolean movedIn;
-    private String cubeId;
-
+    
     public Employee() {
 
     }
     
-    //Private method for setting Employee information
-    private void setEmployeeInformation(String firstName, String lastName, 
+    //Public method for setting Employee information
+    public void setEmployeeInformation(String firstName, String lastName, 
             String ssn, Date birthDate, String cubeId){
         this.setFirstName(firstName);
         this.setLastName(lastName);
         this.setSsn(ssn);
         this.setBirthDate(birthDate);
-        this.setCubeId(cubeId);
     }
     
     //Public method to get the Employee information
     public String getEmployeeInformation(){
         String employeeInfo = this.getFirstName() + " " + this.getLastName() +
-                " " + this.getSsn() + " " + this.getBirthDate() + " " + this.getCubeId();
+                " " + this.getSsn() + " " + this.getBirthDate();
         
         return employeeInfo;
     }
     
-    //public method to access the private methods of Employee
-    public void setEmployeeNecessities(String firstName, String lastName, 
-            String ssn, Date birthDate, String cubeId){
-        this.setEmployeeInformation(firstName, lastName, ssn, birthDate, cubeId);
-        this.meetWithHrForBenefitAndSalryInfo();
-        this.meetDepartmentStaff();
-        this.reviewDeptPolicies();
-        this.moveIntoCubicle(cubeId);
-        this.getStatus();        
-    }
-    
-    // Assume this must be performed first
-    private void meetWithHrForBenefitAndSalryInfo() {
-        metWithHr = true;
-    }
-
-    // Assume this is must be performed second
-    private void meetDepartmentStaff() {
-        if(metWithHr) {
-            metDeptStaff = true;
-        } else {
-            System.out.println("Sorry, you cannot meet with "
-                    + "department staff until you have met with HR.");
-        }
-    }
-
-    // Assume this must be performed third
-    private void reviewDeptPolicies() {
-        if(metWithHr && metDeptStaff) {
-            reviewedDeptPolicies = true;
-        } else {
-            System.out.println("Sorry, you cannot review "
-                    + " department policies until you have first met with HR "
-                    + "and then with department staff.");
-        }
-    }
-
-    // Assume this must be performed 4th
-    private void moveIntoCubicle(String cubeId) {
-        if(metWithHr && metDeptStaff && reviewedDeptPolicies) {
-            this.cubeId = cubeId;
-            this.movedIn = true;
-        } else {
-            System.out.println("Sorry, you cannot move in to a "
-                    + "cubicle until you have first met with HR "
-                    + "and then with department staff, and then reviewed"
-                    + "department policies.");
-        }
-
-    }
-
-    private String getStatus() {
-        if(metWithHr && metDeptStaff
-           && reviewedDeptPolicies && movedIn) {
-            return "Orientation is complete";
-        } else {
-            return "Orientation in progress...";
-        }
-    }
-
     private String getFirstName() {
         return firstName;
     }
@@ -151,18 +93,7 @@ public class Employee {
         this.birthDate = birthDate;
     }
 
-    private String getCubeId() {
-        return cubeId;
-    }
-
-    private void setCubeId(String cubeId) {
-        if (cubeId == null || cubeId.equals(" ")){
-            System.out.println("This is not a valid name!");
-        }
-        else {
-        this.cubeId = cubeId;
-        }
-    }
+    
     
     
 }

@@ -49,18 +49,17 @@ public class Startup {
         * from a user.  This could be done through Scanner of GUI.
         */
         
-//        HiredEmployee hiredEmployee = new HiredEmployee(firstName, lastName, ssn, birthDate);
-//        
-//        //a.setHiredEmployeeConditions(metWithHr, metDeptStaff, reviewedDeptPolicies, movedIn, cubeId);
-//        hiredEmployee.setEmployeeNecessities(cubeId);
-//        
-//        hiredEmployee.getEmployeeInformationFromEmployee();
-////        hiredEmployee.getEmployeeInformationFromEmployee();
-////        hiredEmployee.getHiredEmployeeConditions();
+        HiredEmployee hiredEmployee = new HiredEmployee(firstName, lastName, ssn, birthDate);
         
-        Employee test = new Employee();
-        test.setEmployeeInformation(firstName, lastName, ssn, birthDate);
-        test.getEmployeeInformation();
+        //a.setHiredEmployeeConditions(metWithHr, metDeptStaff, reviewedDeptPolicies, movedIn, cubeId);
+        hiredEmployee.setEmployeeNecessities(cubeId);
+        
+        hiredEmployee.getEmployeeInformationFromEmployee();
+        hiredEmployee.getHiredEmployeeConditions();
+        
+//        Employee test = new Employee();
+//        test.setEmployeeInformation(firstName, lastName, ssn, birthDate);
+//        test.getEmployeeInformation();
     }
     
     

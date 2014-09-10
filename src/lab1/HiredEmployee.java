@@ -38,17 +38,16 @@ public class HiredEmployee {
 //        this.setCubeId(cubeId);
 //    }
     //Public getter for HiredEmployee properties (gets the status of boolean properties
-    public String getHiredEmployeeConditions() {
-        String employeeConditions = this.isMetWithHr() + " " + this.isMetDeptStaff()
+    
+    public void getHiredEmployeeConditions() {
+        System.out.println(this.isMetWithHr() + " " + this.isMetDeptStaff()
                 + " " + this.isReviewedDeptPolicies() + " " + this.isMovedIn() + " "
-                + this.getCubeId();
-        return employeeConditions;
+                + this.getCubeId());
     }
 
     //Getter for Employee information
-    public String getEmployeeInformationFromEmployee() {
-        String tempInfo = employee.getEmployeeInformation();
-        return tempInfo;
+    public void getEmployeeInformationFromEmployee() {
+        employee.getEmployeeInformation();
     }
 
     //Private getters and setters for HiredEmployee properties

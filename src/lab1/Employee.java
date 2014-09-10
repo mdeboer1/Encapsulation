@@ -38,12 +38,16 @@ public class Employee {
     }
     
     //Public method to get the Employee information
-    public String getEmployeeInformation(){
-        String employeeInfo = this.getFirstName() + " " + this.getLastName() +
-                " " + this.getSsn() + " " + this.getBirthDate();
-        
-        return employeeInfo;
+    public void getEmployeeInformation(){
+        System.out.println(this.getFirstName() + " " + this.getLastName() + " " +
+              this.getSsn() + " " + this.getBirthDate());
     }
+//    public String getEmployeeInformation(){
+//        String employeeInfo = this.getFirstName() + " " + this.getLastName() +
+//                " " + this.getSsn() + " " + this.getBirthDate();
+//        
+//        return employeeInfo;
+//    }
     
     private String getFirstName() {
         return firstName;

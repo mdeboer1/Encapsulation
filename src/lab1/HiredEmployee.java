@@ -3,47 +3,54 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package lab1;
-
-import java.util.Date;
 
 /**
  *
- * @author mdeboer1
- * 
+ * @author mdeboer1 This class is an intermediary class the takes user
+ * information and from main method and creates an Employee object, sets the
+ * employee information through Employee's public setter. It has private getters
+ * and setters and public methods to get and set the HiredEmployee booleans,
+ * this protects how and when they are created.
  */
 public class HiredEmployee {
+
     private boolean metWithHr;
     private boolean metDeptStaff;
     private boolean reviewedDeptPolicies;
     private boolean movedIn;
     private String cubeId;
-    
-    public HiredEmployee(String firstName, String lastName, 
-            String ssn, Date birthDate, String cubeId){
-        Employee a = new Employee();
-        a.setEmployeeInformation(firstName, lastName, ssn, birthDate, cubeId);
+    Employee employee;
+
+    public HiredEmployee(String firstName, String lastName,
+            String ssn, String birthDate) {
+        employee = new Employee();
+        employee.setEmployeeInformation(firstName, lastName, ssn, birthDate);
     }
-    
+
     //Public setter for HiredEmployee properties (sets the status of the boolean properties
-    public void setHiredEmployeeConditions(boolean metWithHr, boolean metDeptStaff,
-            boolean reviewedDeptPolicies, boolean movedIn, String cubeId){
-        this.setMetWithHr(metWithHr);
-        this.setMetDeptStaff(metDeptStaff);
-        this.setReviewedDeptPolicies(reviewedDeptPolicies);
-        this.setMovedIn(movedIn);
-        this.setCubeId(cubeId);
-    }
-    
+//    public void setHiredEmployeeConditions(boolean metWithHr, boolean metDeptStaff,
+//            boolean reviewedDeptPolicies, boolean movedIn, String cubeId){
+//        this.setMetWithHr(metWithHr);
+//        this.setMetDeptStaff(metDeptStaff);
+//        this.setReviewedDeptPolicies(reviewedDeptPolicies);
+//        this.setMovedIn(movedIn);
+//        this.setCubeId(cubeId);
+//    }
     //Public getter for HiredEmployee properties (gets the status of boolean properties
-    public String getHiredEmployeeConditions(){
-        String employeeConditions = this.isMetWithHr() + " " + this.isMetDeptStaff() +
-                " " + this.isReviewedDeptPolicies() + " " + this.isMovedIn() + " " +
-                this.getCubeId();
+    public String getHiredEmployeeConditions() {
+        String employeeConditions = this.isMetWithHr() + " " + this.isMetDeptStaff()
+                + " " + this.isReviewedDeptPolicies() + " " + this.isMovedIn() + " "
+                + this.getCubeId();
         return employeeConditions;
     }
-    
+
+    //Getter for Employee information
+    public String getEmployeeInformationFromEmployee() {
+        String tempInfo = employee.getEmployeeInformation();
+        return tempInfo;
+    }
+
     //Private getters and setters for HiredEmployee properties
     private boolean isMetWithHr() {
         return metWithHr;
@@ -76,17 +83,17 @@ public class HiredEmployee {
     private void setMovedIn(boolean movedIn) {
         this.movedIn = movedIn;
     }
-    
+
     //public method to access the private methods of Employee
-    public void setEmployeeNecessities(){
-        
+    public void setEmployeeNecessities(String cubeId) {
+
         this.meetWithHrForBenefitAndSalryInfo();
         this.meetDepartmentStaff();
         this.reviewDeptPolicies();
         this.moveIntoCubicle(cubeId);
-        this.getStatus();        
+        this.getStatus();
     }
-    
+
     // Assume this must be performed first
     private void meetWithHrForBenefitAndSalryInfo() {
         metWithHr = true;
@@ -94,7 +101,7 @@ public class HiredEmployee {
 
     // Assume this is must be performed second
     private void meetDepartmentStaff() {
-        if(metWithHr) {
+        if (metWithHr) {
             metDeptStaff = true;
         } else {
             System.out.println("Sorry, you cannot meet with "
@@ -104,7 +111,7 @@ public class HiredEmployee {
 
     // Assume this must be performed third
     private void reviewDeptPolicies() {
-        if(metWithHr && metDeptStaff) {
+        if (metWithHr && metDeptStaff) {
             reviewedDeptPolicies = true;
         } else {
             System.out.println("Sorry, you cannot review "
@@ -115,7 +122,7 @@ public class HiredEmployee {
 
     // Assume this must be performed 4th
     private void moveIntoCubicle(String cubeId) {
-        if(metWithHr && metDeptStaff && reviewedDeptPolicies) {
+        if (metWithHr && metDeptStaff && reviewedDeptPolicies) {
             this.cubeId = cubeId;
             this.movedIn = true;
         } else {
@@ -127,24 +134,23 @@ public class HiredEmployee {
     }
 
     private String getStatus() {
-        if(metWithHr && metDeptStaff
-           && reviewedDeptPolicies && movedIn) {
+        if (metWithHr && metDeptStaff
+                && reviewedDeptPolicies && movedIn) {
             return "Orientation is complete";
         } else {
             return "Orientation in progress...";
         }
     }
-    
+
     private String getCubeId() {
         return cubeId;
     }
 
     private void setCubeId(String cubeId) {
-        if (cubeId == null || cubeId.equals(" ")){
-            System.out.println("This is not a valid name!");
-        }
-        else {
-        this.cubeId = cubeId;
+        if (cubeId == null || cubeId.equals(" ")) {
+            System.out.println("This is not a valid Id!");
+        } else {
+            this.cubeId = cubeId;
         }
     }
 }

@@ -1,6 +1,5 @@
 package lab1;
 
-import java.util.Date;
 
 /**
  * In this lab your challenge is to fix the code in both classes to use
@@ -23,7 +22,7 @@ public class Employee {
     private String firstName;
     private String lastName;
     private String ssn;
-    private Date birthDate;
+    private String birthDate;
     
     public Employee() {
 
@@ -31,7 +30,7 @@ public class Employee {
     
     //Public method for setting Employee information
     public void setEmployeeInformation(String firstName, String lastName, 
-            String ssn, Date birthDate, String cubeId){
+            String ssn, String birthDate){
         this.setFirstName(firstName);
         this.setLastName(lastName);
         this.setSsn(ssn);
@@ -78,22 +77,24 @@ public class Employee {
 
     private void setSsn(String ssn) {
         if (ssn == null || ssn.equals(" ")){
-            System.out.println("This is not a valid name!");
+            System.out.println("This is not a valid Social Security Number!");
         }
         else {
         this.ssn = ssn;
         }
     }
 
-    private Date getBirthDate() {
+    private String getBirthDate() {
         return birthDate;
     }
 
-    private void setBirthDate(Date birthDate) {
+    private void setBirthDate(String birthDate) {
+        if (birthDate == null || birthDate.equals(" ")){
+            System.out.println("This is not a valid date!");
+        }
+        else {
         this.birthDate = birthDate;
-    }
+        }
+    }    
 
-    
-    
-    
 }

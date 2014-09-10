@@ -9,29 +9,59 @@ import java.util.Date;
  *
  * @author      Jim Lombardo, WCTC Instructor
  * @version     1.01
+ * updated by mdeboer1
  */
 public class Employee {
-    String firstName;
-    String lastName;
-    public String ssn;
-    public Date birthDate;
-    boolean metWithHr;
-    boolean metDeptStaff;
-    boolean reviewedDeptPolicies;
-    boolean movedIn;
-    String cubeId;
+    private String firstName;
+    private String lastName;
+    private String ssn;
+    private Date birthDate;
+    private boolean metWithHr;
+    private boolean metDeptStaff;
+    private boolean reviewedDeptPolicies;
+    private boolean movedIn;
+    private String cubeId;
 
     public Employee() {
 
     }
-
+    
+    //Private method for setting Employee information
+    private void setEmployeeInformation(String firstName, String lastName, 
+            String ssn, Date birthDate, String cubeId){
+        this.setFirstName(firstName);
+        this.setLastName(lastName);
+        this.setSsn(ssn);
+        this.setBirthDate(birthDate);
+        this.setCubeId(cubeId);
+    }
+    
+    //Public method to get the Employee information
+    public String getEmployeeInformation(){
+        String employeeInfo = this.getFirstName() + " " + this.getLastName() +
+                " " + this.getSsn() + " " + this.getBirthDate() + " " + this.getCubeId();
+        
+        return employeeInfo;
+    }
+    
+    //public method to access the private methods of Employee
+    public void setEmployeeNecessities(String firstName, String lastName, 
+            String ssn, Date birthDate, String cubeId){
+        this.setEmployeeInformation(firstName, lastName, ssn, birthDate, cubeId);
+        this.meetWithHrForBenefitAndSalryInfo();
+        this.meetDepartmentStaff();
+        this.reviewDeptPolicies();
+        this.moveIntoCubicle(cubeId);
+        this.getStatus();        
+    }
+    
     // Assume this must be performed first
-    public void meetWithHrForBenefitAndSalryInfo() {
+    private void meetWithHrForBenefitAndSalryInfo() {
         metWithHr = true;
     }
 
     // Assume this is must be performed second
-    public void meetDepartmentStaff() {
+    private void meetDepartmentStaff() {
         if(metWithHr) {
             metDeptStaff = true;
         } else {
@@ -41,7 +71,7 @@ public class Employee {
     }
 
     // Assume this must be performed third
-    public void reviewDeptPolicies() {
+    private void reviewDeptPolicies() {
         if(metWithHr && metDeptStaff) {
             reviewedDeptPolicies = true;
         } else {
@@ -52,7 +82,7 @@ public class Employee {
     }
 
     // Assume this must be performed 4th
-    public void moveIntoCubicle(String cubeId) {
+    private void moveIntoCubicle(String cubeId) {
         if(metWithHr && metDeptStaff && reviewedDeptPolicies) {
             this.cubeId = cubeId;
             this.movedIn = true;
@@ -65,7 +95,7 @@ public class Employee {
 
     }
 
-    public String getStatus() {
+    private String getStatus() {
         if(metWithHr && metDeptStaff
            && reviewedDeptPolicies && movedIn) {
             return "Orientation is complete";
@@ -73,4 +103,46 @@ public class Employee {
             return "Orientation in progress...";
         }
     }
+
+    private String getFirstName() {
+        return firstName;
+    }
+
+    private void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    private String getLastName() {
+        return lastName;
+    }
+
+    private void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    private String getSsn() {
+        return ssn;
+    }
+
+    private void setSsn(String ssn) {
+        this.ssn = ssn;
+    }
+
+    private Date getBirthDate() {
+        return birthDate;
+    }
+
+    private void setBirthDate(Date birthDate) {
+        this.birthDate = birthDate;
+    }
+
+    private String getCubeId() {
+        return cubeId;
+    }
+
+    private void setCubeId(String cubeId) {
+        this.cubeId = cubeId;
+    }
+    
+    
 }

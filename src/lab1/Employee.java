@@ -109,15 +109,25 @@ public class Employee {
     }
 
     private void setFirstName(String firstName) {
+        if (firstName == null || firstName.equals(" ")){
+            System.out.println("This is not a valid name!");
+        }
+        else {
         this.firstName = firstName;
-    }
+        }
+    }    
 
     private String getLastName() {
         return lastName;
     }
 
     private void setLastName(String lastName) {
+        if (lastName == null || lastName.equals(" ")){
+            System.out.println("This is not a valid name!");
+        }
+        else {
         this.lastName = lastName;
+        }
     }
 
     private String getSsn() {
@@ -125,7 +135,12 @@ public class Employee {
     }
 
     private void setSsn(String ssn) {
+        if (ssn == null || ssn.equals(" ")){
+            System.out.println("This is not a valid name!");
+        }
+        else {
         this.ssn = ssn;
+        }
     }
 
     private Date getBirthDate() {
@@ -141,7 +156,12 @@ public class Employee {
     }
 
     private void setCubeId(String cubeId) {
+        if (cubeId == null || cubeId.equals(" ")){
+            System.out.println("This is not a valid name!");
+        }
+        else {
         this.cubeId = cubeId;
+        }
     }
     
     

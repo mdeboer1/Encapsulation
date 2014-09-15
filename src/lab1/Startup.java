@@ -34,7 +34,7 @@ public class Startup {
 //        employee.reviewDeptPolicies();
 //
 //        System.out.println("The employee's status is: " + employee.getStatus());
-         // Properties to pass info to HiredEmployee Class
+         // Properties to pass info to EmployeeManager Class
 //        boolean metWithHr = true;
 //        boolean metDeptStaff = true;
 //        boolean reviewedDeptPolicies = true;
@@ -49,7 +49,7 @@ public class Startup {
         * from a user.  This could be done through Scanner of GUI.
         */
         
-        HiredEmployee hiredEmployee = new HiredEmployee(firstName, lastName, ssn, birthDate);
+        EmployeeManager hiredEmployee = new EmployeeManager(firstName, lastName, ssn, birthDate);
         
         //a.setHiredEmployeeConditions(metWithHr, metDeptStaff, reviewedDeptPolicies, movedIn, cubeId);
         hiredEmployee.setEmployeeNecessities(cubeId);

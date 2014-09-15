@@ -8,16 +8,16 @@ package lab1;
 /**
  *
  * @author mdeboer1 This class is an intermediary class the takes user
- * information and from main method and creates an Employee object, sets the
- * employee information through Employee's public setter. It has private getters
- * and setters and public methods to get and set the HiredEmployee booleans,
- * this protects how and when they are created.  Although several of the setters
- * are never actually used in the class as it it implemented now.  I wonder if its
- * best practice to code them anyways in case they are needed for some reason in the
- * future?  Seems like in these small programs they don't hurt anything since
- * resources aren't the important yet...but that won't always be the case.
+ information and from main method and creates an Employee object, sets the
+ employee information through Employee's public setter. It has private getters
+ and setters and public methods to get and set the EmployeeManager booleans,
+ this protects how and when they are created.  Although several of the setters
+ are never actually used in the class as it it implemented now.  I wonder if its
+ best practice to code them anyways in case they are needed for some reason in the
+ future?  Seems like in these small programs they don't hurt anything since
+ resources aren't the important yet...but that won't always be the case.
  */
-public class HiredEmployee {
+public class EmployeeManager {
 
     private boolean metWithHr;
     private boolean metDeptStaff;
@@ -26,13 +26,13 @@ public class HiredEmployee {
     private String cubeId;
     Employee employee;
 
-    public HiredEmployee(String firstName, String lastName,
+    public EmployeeManager(String firstName, String lastName,
             String ssn, String birthDate) {
         employee = new Employee();
         employee.setEmployeeInformation(firstName, lastName, ssn, birthDate);
     }
 
-    //Public getter for HiredEmployee properties (gets the status of boolean properties
+    //Public getter for EmployeeManager properties (gets the status of boolean properties
     
     public void getHiredEmployeeConditions() {
         System.out.println(this.isMetWithHr() + " " + this.isMetDeptStaff()
@@ -45,7 +45,7 @@ public class HiredEmployee {
         employee.getEmployeeInformation();
     }
 
-    //Private getters and setters for HiredEmployee properties
+    //Private getters and setters for EmployeeManager properties
     private boolean isMetWithHr() {
         return metWithHr;
     }
